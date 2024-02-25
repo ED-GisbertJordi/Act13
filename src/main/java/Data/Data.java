@@ -7,8 +7,8 @@ public class Data {
     private int mes;
     private int any;
 
-    private static final String[] DIES_TEXT = new String[] { "diumenge", "dilluns", "dimarts", "dimecres", "dijous", "divendres",
-                    "dissabte"};
+    private static final String[] DIES_TEXT = new String[] {"dilluns", "dimarts", "dimecres", "dijous", "divendres",
+                    "dissabte", "diumenge"};
     private static final String[] MESOS_TEXT = new String[] { "gener", "febrer", "març", "abril", "maig", "juny",
                     "juliol", "agost", "setembre", "octubre", "novembre", "desembre" };
 
@@ -127,14 +127,14 @@ public class Data {
      * Muestra por pantalla la fecha en formato español dd-mm-yyyy
      */
     public void mostrarEnFormatES()  {
-            // Tu código aquí
+            System.out.println(this.dia+"-"+this.mes+"-"+this.any);
     }
 
     /**
      * Muestra por pantalla la fecha en formato inglés yyyy-mm-dd
      */
     public void mostrarEnFormatGB() {
-            // Tu código aquí
+            System.out.println(this.any+"-"+this.mes+"-"+this.dia);
     }
 
     /**
@@ -142,7 +142,7 @@ public class Data {
      * Ej. 1 enero de 1970
      */
     public void mostrarEnFormatText() {
-            // Tu código aquí
+            System.out.println(this.dia+"-"+MESOS_TEXT[this.mes-1]+"-"+this.any);
     }
 
     /**
@@ -152,7 +152,7 @@ public class Data {
      * @return boolean
      */
     public boolean isIgual(Data otraFecha) {
-            return false;
+            return this.equals(otraFecha);
     }
 
     /**
@@ -161,7 +161,7 @@ public class Data {
      * @return String
      */
     public String getDiaSetmana() {
-            return null;
+            return MESOS_TEXT[this.mes-1];
     }
 
     /**
@@ -169,7 +169,7 @@ public class Data {
      * @return boolean
      */
     public boolean isFestiu() {
-            return false;
+            return DIES_TEXT[this.dia-1].equals(DIES_TEXT[DIES_TEXT.length-2]) || DIES_TEXT[this.dia-1].equals(DIES_TEXT[DIES_TEXT.length-1] );
     }
 
     /**
