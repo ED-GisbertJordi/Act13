@@ -4,12 +4,15 @@
  */
 package main;
 
+import Data.Data;
+
 /**
  *
- * @author Usuario
+ * @author Jordi Gisbert Ferriz
  */
 public class main {
     public static void main(String[] args) {
+        Data d1 = new Data("sadfas");
         System.out.println("Hello Word!");
     }
 }
