@@ -85,8 +85,10 @@ public class Data {
     /**
      * Modifica la fecha actual a partir de los datos pasados como argumento
      */
-    public void set(int dia, int mes, int anyo) {
-            // Tu código aquí
+    public void set(int dia, int mes, int any) {
+            this.dia = dia;
+            this.mes = mes;
+            this.any = any;
     }
 
     /**
@@ -94,7 +96,7 @@ public class Data {
      * @return
      */
     public Data clone() {
-            return null;
+            return new Data(this.dia, this.mes, this.any);
     }
 
     /**
@@ -102,7 +104,7 @@ public class Data {
      * @return @dia
      */
     public int getDia() {
-            return 0;
+            return this.dia;
     }
 
     /**
@@ -110,7 +112,7 @@ public class Data {
      * @return @mes
      */
     public int getMes(){
-            return 0;
+            return this.mes;
     }
 
     /**
@@ -118,7 +120,7 @@ public class Data {
      * @return @mes
      */
     public int getAny(){
-            return 0;
+            return this.any;
     }
 
     /**
