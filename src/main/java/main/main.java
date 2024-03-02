@@ -12,7 +12,13 @@ import Data.Data;
  */
 public class main {
     public static void main(String[] args) {
-        Data d1 = new Data("sadfas");
-        System.out.println("Hello Word!");
+        Data d1 = new Data(12,12,2023);
+        d1.mostrarEnFormatES();
+        System.out.println(d1.getDiaSetmana());
+        
+        Data d2 = new Data(1,1,2012);
+        d2.mostrarEnFormatES();
+        System.out.println(d2.getDiaSetmana());
+//        System.out.println("Dias: "+d1.getDiesTranscorregutsOrigen());
     }
 }

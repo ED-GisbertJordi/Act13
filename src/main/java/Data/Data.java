@@ -7,8 +7,8 @@ public class Data {
     private int mes;
     private int any;
 
-    private static final String[] DIES_TEXT = new String[] {"dilluns", "dimarts", "dimecres", "dijous", "divendres",
-                    "dissabte", "diumenge"};
+    private static final String[] DIES_TEXT = new String[] {"diumenge", "dilluns", "dimarts", "dimecres", "dijous", "divendres",
+                    "dissabte"};
     private static final String[] MESOS_TEXT = new String[] { "gener", "febrer", "març", "abril", "maig", "juny",
                     "juliol", "agost", "setembre", "octubre", "novembre", "desembre" };
 
@@ -17,11 +17,9 @@ public class Data {
      *  Inicializa una fecha a dia 1-1-1970
      */
     public Data() {
-                    // tu codigo aqui
-                    this.dia = 1;
-                    this.mes = 1;
-                    this.any = 1970;
-
+        this.dia = 1;
+        this.mes = 1;
+        this.any = 1970;
     }
 
     /**
@@ -31,19 +29,19 @@ public class Data {
      *  @param anyo
      */
     public Data(int dia, int mes, int any) {
-                    if (dia<1&&dia>31) {
-                        dia = 1;
-                    }
-                    if (mes<1&&mes>12) {
-                        mes = 1;
-                    }
-                    if (any<1970) {
-                        any = 1970;
-                    }
+        if (dia<1&&dia>31) {
+            dia = 1;
+        }
+        if (mes<1&&mes>12) {
+            mes = 1;
+        }
+        if (any<1970) {
+            any = 1970;
+        }
 
-                    this.dia = dia;
-                    this.mes = mes;
-                    this.any = any;
+        this.dia = dia;
+        this.mes = mes;
+        this.any = any;
     }
 
     /**
@@ -56,39 +54,38 @@ public class Data {
      * @param fecha
      */
     public Data(String data) {
-                    StringTokenizer token = new StringTokenizer(data, "/");
-                    if (token.countTokens()==3) {
-                        int dia = Integer.parseInt(token.nextToken());
-                        int mes = Integer.parseInt(token.nextToken());
-                        int any = Integer.parseInt(token.nextToken());
+        StringTokenizer token = new StringTokenizer(data, "/");
+        if (token.countTokens()==3) {
+            int dia = Integer.parseInt(token.nextToken());
+            int mes = Integer.parseInt(token.nextToken());
+            int any = Integer.parseInt(token.nextToken());
 
-                        if (dia<1&&dia>31) {
-                            dia = 1;
-                        }
-                        if (mes<1&&mes>12) {
-                            mes = 1;
-                        }
-                        if (any<1970) {
-                            any = 1970;
-                        }
-                    }else {
-                        dia = 1;
-                        mes = 1;
-                        any = 1970;
-                    }
-
-                    this.dia = dia;
-                    this.mes = mes;
-                    this.any = any;
+            if (dia<1&&dia>31) {
+                dia = 1;
+            }
+            if (mes<1&&mes>12) {
+                mes = 1;
+            }
+            if (any<1970) {
+                any = 1970;
+            }
+        }else {
+            dia = 1;
+            mes = 1;
+            any = 1970;
+        }
+        this.dia = dia;
+        this.mes = mes;
+        this.any = any;
     }
 
     /**
      * Modifica la fecha actual a partir de los datos pasados como argumento
      */
     public void set(int dia, int mes, int any) {
-            this.dia = dia;
-            this.mes = mes;
-            this.any = any;
+        this.dia = dia;
+        this.mes = mes;
+        this.any = any;
     }
 
     /**
@@ -96,7 +93,7 @@ public class Data {
      * @return
      */
     public Data clone() {
-            return new Data(this.dia, this.mes, this.any);
+        return new Data(this.dia, this.mes, this.any);
     }
 
     /**
@@ -112,7 +109,7 @@ public class Data {
      * @return @mes
      */
     public int getMes(){
-            return this.mes;
+        return this.mes;
     }
 
     /**
@@ -120,21 +117,21 @@ public class Data {
      * @return @mes
      */
     public int getAny(){
-            return this.any;
+        return this.any;
     }
 
     /**
      * Muestra por pantalla la fecha en formato español dd-mm-yyyy
      */
     public void mostrarEnFormatES()  {
-            System.out.println(this.dia+"-"+this.mes+"-"+this.any);
+        System.out.printf("%02d-%02d-%04d", this.dia, this.mes, this.any);
     }
 
     /**
      * Muestra por pantalla la fecha en formato inglés yyyy-mm-dd
      */
     public void mostrarEnFormatGB() {
-            System.out.println(this.any+"-"+this.mes+"-"+this.dia);
+        System.out.printf("%04d-%02d-%02d", this.any,this.mes,this.dia);
     }
 
     /**
@@ -142,7 +139,7 @@ public class Data {
      * Ej. 1 enero de 1970
      */
     public void mostrarEnFormatText() {
-            System.out.println(this.dia+"-"+MESOS_TEXT[this.mes-1]+"-"+this.any);
+        System.out.printf("%02d-"+MESOS_TEXT[this.mes-1]+"-%04d", this.dia, this.any);
     }
 
     /**
@@ -152,7 +149,7 @@ public class Data {
      * @return boolean
      */
     public boolean isIgual(Data otraFecha) {
-            return this.equals(otraFecha);
+        return this.equals(otraFecha);
     }
 
     /**
@@ -161,7 +158,7 @@ public class Data {
      * @return String
      */
     public String getDiaSetmana() {
-            return MESOS_TEXT[this.mes-1];
+        return DIES_TEXT[this.getDiesTranscorregutsOrigen()%7];
     }
 
     /**
@@ -169,7 +166,7 @@ public class Data {
      * @return boolean
      */
     public boolean isFestiu() {
-            return DIES_TEXT[this.dia-1].equals(DIES_TEXT[DIES_TEXT.length-2]) || DIES_TEXT[this.dia-1].equals(DIES_TEXT[DIES_TEXT.length-1] );
+        return DIES_TEXT[this.dia-1].equals(DIES_TEXT[DIES_TEXT.length-1]) || DIES_TEXT[this.dia-1].equals(DIES_TEXT[0] );
     }
 
     /**
@@ -181,7 +178,7 @@ public class Data {
      * @return int dia semana
      */
     public int getNumeroSetmana() {
-            return 0;
+        return 0;
     }
 
     /**
@@ -193,7 +190,7 @@ public class Data {
      * @return boolean
      */
     public Data afegir(int numDias){
-            return null;
+        return null;
     }
 
     /**
@@ -204,7 +201,7 @@ public class Data {
      * @return boolean
      */
     public Data restar(int numDias){
-            return null;
+        return null;
     }
 
     /**
@@ -213,7 +210,7 @@ public class Data {
      * @return 
      */
     public boolean isCorrecta(){
-            return false;
+        return false;
     }
 
     /**
@@ -221,7 +218,7 @@ public class Data {
      * @return char
      */
     private String getMesEnFormatText() {
-            return null;
+        return null;
     }
 
     /**
@@ -230,7 +227,13 @@ public class Data {
      * @return int
      */
     private int getDiesTranscorregutsOrigen() {
-            return 0;
+        int bisiestos = 0;
+        for (int y = 1; y <= this.any; y++) {
+            if (isBisiesto(y)) {
+                bisiestos++;
+            }
+        }
+        return (this.any-1)*365+(bisiestos)+(this.dia-1);
     }
 
     /**
@@ -239,7 +242,7 @@ public class Data {
      * @return int
      */
     private int getDiesTranscorregutsEnAny() {
-            return 0;
+        return 0;
     }
 
     /**
@@ -249,7 +252,7 @@ public class Data {
      * @return boolean
      */
     public static boolean isBisiesto(int anyo){
-            return false;
+        return anyo % 4 == 0 && (anyo % 100 != 0 || anyo % 400 == 0);
     }
 
     /**
@@ -259,7 +262,12 @@ public class Data {
      *  @return int total dias mes en curso
      */
     public static int getDiesMes (int mes, int anyo) {
-            return 0;
+        return switch (mes) {
+            case 1,3,5,7,8,10,12 -> 31;
+            case 2 -> (isBisiesto(anyo)? 29:28);
+            case 4,6,9,11 -> 30;
+            default -> -1;
+        };
     }
 
     /**
@@ -268,6 +276,6 @@ public class Data {
      * @return int total dias anyo en curso
      */
     public static int getDiesAny (int anyo){
-            return 0;
+        return (isBisiesto(anyo)? 366:365);
     }
 }
