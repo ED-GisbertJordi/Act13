@@ -1,6 +1,11 @@
 package Data;
 import java.util.StringTokenizer;
 
+/**
+ *
+ * @author Jordi Gisbert Ferriz
+ */
+
 
 public class Data {
     private int dia;

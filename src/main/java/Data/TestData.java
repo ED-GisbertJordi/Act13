@@ -6,7 +6,7 @@ package Data;
 
 /**
  *
- * @author Usuario
+ * @author Jordi Gisbert Ferriz
  */
 public class TestData {
     public static void main(String[] args) {
