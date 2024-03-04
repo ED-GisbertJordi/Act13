@@ -10,9 +10,6 @@ package Data;
  */
 public class TestData {
     public static void main(String[] args) {
-         Data fecha1 = new Data(15, 1, 2018);
-         System.out.println(fecha1.getNumeroSetmana());
-        /*
         System.out.println("=== START - Prova de Constructors - START ===\n--- Cree un nou objecte utilitzant el constructor parametritzat int int int (16,1,2021) ---");
         Data op1 = new Data(16,1,2021);
         op1.mostrarEnFormatES();
@@ -87,7 +84,6 @@ public class TestData {
         System.out.println("-------------------------------");
         
         System.out.println("\n=== FI - Prova del mètode modificador - FI ===");
-        */
     }
     
 }
