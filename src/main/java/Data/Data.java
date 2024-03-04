@@ -124,7 +124,7 @@ public class Data {
      * Ej. 1 enero de 1970
      */
     public void mostrarEnFormatText() {
-        System.out.printf("%02d-"+MESOS_TEXT[this.mes-1]+"-%04d\n", this.dia, this.any);
+        System.out.printf("%02d-"+getMesEnFormatText()+"-%04d\n", this.dia, this.any);
 //        System.out.printf("%02d-"+this.getDiaSetmana()+"-%04d\n", this.dia, this.any);
     }
 
