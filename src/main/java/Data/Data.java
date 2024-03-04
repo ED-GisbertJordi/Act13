@@ -50,15 +50,18 @@ public class Data {
      */
     public Data(String data) {
         StringTokenizer token = new StringTokenizer(data, "/");
-        int dia = 1;
-        int mes = 1;
-        int any = 1970;
+        
+        int dia = 0, mes = 0, any = 0;
         if (token.countTokens()==3) {
             dia = Integer.parseInt(token.nextToken());
             mes = Integer.parseInt(token.nextToken());
             any = Integer.parseInt(token.nextToken());
         }
-
+        if (!new Data (dia,mes,any).isCorrecta()) {
+                dia = 1;
+                mes = 1;
+                any = 1970;
+        }
         this.dia = dia;
         this.mes = mes;
         this.any = any;
