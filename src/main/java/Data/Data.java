@@ -124,7 +124,8 @@ public class Data {
      * Ej. 1 enero de 1970
      */
     public void mostrarEnFormatText() {
-        System.out.printf("%02d-"+MESOS_TEXT[this.mes-1]+"-%04d\n", this.dia, this.any);
+//        System.out.printf("%02d-"+MESOS_TEXT[this.mes-1]+"-%04d\n", this.dia, this.any);
+        System.out.printf("%02d-"+this.getDiaSetmana()+"-%04d\n", this.dia, this.any);
     }
 
     /**
@@ -174,7 +175,7 @@ public class Data {
      * @return int dia semana
      */
     public int getNumeroSetmana() {
-        return getDiesTranscorregutsEnAny()/7+1;
+        return (DIES_TEXT[0].equals(new Data(1,1,this.any).getDiaSetmana()))? getDiesTranscorregutsEnAny()/7+2: getDiesTranscorregutsEnAny()/7+1;
     }
 
     /**

@@ -115,11 +115,11 @@ public class TestFecha {
         int numeroSemanaEsperado = 3;
         assertTrue(fecha1.getNumeroSetmana()== 3, "No se está determinando que la fecha 15/1/2018 sea un día de la semana " + numeroSemanaEsperado);
         
-        /*
+        
         Data fecha2 = new Data(2,1,2017);
         numeroSemanaEsperado = 2;
         assertTrue(fecha2.getNumeroSetmana() == 2,  "No se está determinando que la fecha 02/01/2017 sea un día de la semana " + numeroSemanaEsperado);
-        */
+        
 
         Data fecha3 = new Data(6,3,2021);
         numeroSemanaEsperado = 10;
